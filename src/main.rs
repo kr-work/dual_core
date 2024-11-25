@@ -38,7 +38,7 @@ fn main() -> anyhow::Result<()> {
         );
     }
     
-    let task1_name = CString::new(TASK1_NAME).unwrap();
+    let task1_name = CString::new(TASK1_NAME)?;
     unsafe {
         xTaskCreatePinnedToCore(
             Some(task1),
@@ -50,7 +50,7 @@ fn main() -> anyhow::Result<()> {
             0,
         );
     }
-    let task2_name = CString::new(TASK2_NAME).unwrap();
+    let task2_name = CString::new(TASK2_NAME)?;
     unsafe {
         xTaskCreatePinnedToCore(
             Some(task2),
