@@ -34,8 +34,6 @@ anyhow = "1.0.89"
 once_cell = "1.19.0"
 esp-idf-hal = "0.44.1"
 esp-idf-sys = "0.35.0"
-rand_simple = "=0.0.34"
-ndarray = "0.16.1"
 
 [build-dependencies]
 embuild = "0.32.0"

@@ -3,7 +3,6 @@ use esp_idf_sys::{self as _};
 use esp_idf_sys::xTaskCreatePinnedToCore;
 use std::ffi::CString;
 use esp_idf_svc::sys::link_patches;
-use rand_simple::Normal;
 static TASK1_NAME: &str = "Task 1";
 static TASK2_NAME: &str = "Task 2";
 
@@ -38,10 +37,7 @@ fn main() -> anyhow::Result<()> {
             esp_idf_sys::esp_log_level_t_ESP_LOG_WARN,
         );
     }
-
-    let normal = Normal::new(1192u32, 765u32);
-    let next = normal.try_set_params(0.0, 1.1);
-
+    
     let task1_name = CString::new(TASK1_NAME).unwrap();
     unsafe {
         xTaskCreatePinnedToCore(
